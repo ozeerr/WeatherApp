@@ -1,18 +1,20 @@
 import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useCallback, useEffect, useState } from 'react'
 import { theme } from '../theme'
-import { MagnifyingGlassIcon } from 'react-native-heroicons/outline'
+import { MagnifyingGlassIcon, PencilSquareIcon } from 'react-native-heroicons/outline'
 import { CalendarIcon, MapPinIcon } from 'react-native-heroicons/solid'
 import {debounce} from "lodash"
 import { fetchLocations, fetchWeatherForecast } from '../api/weather'
 import { weatherImages } from '../constants'
 import * as Progress from 'react-native-progress';
 import { getData, storeData } from '../utils/asyncStorage'
+import { useNavigation } from '@react-navigation/native'
 const HomeScreen = () => {
     const [showShearch,setShowSearch]=useState(false);
     const [locations,setLocations]=useState([]);
     const [weather,setWeather]=useState({})
     const [loading,setLoading]=useState(true)
+    const navigation=useNavigation()
     const {current,location}=weather;
     const datehour=new Date();
     const handleLocation=(loc)=>{
@@ -26,7 +28,6 @@ const HomeScreen = () => {
         })
     }
     
-    console.log(weather)
    
     const handleSearch=(value)=>{
         if(value.length>3){
@@ -46,7 +47,7 @@ const HomeScreen = () => {
         if(myCity){cityName=myCity}
         fetchWeatherForecast({cityName,days:'7'}).
         then(data=>setWeather(data))
-        setTimeout(() => {setLoading(false)}, 300)
+        setTimeout(() => {setLoading(false)}, 600)
     }
     const handleTextDebounce=useCallback(debounce(handleSearch,700),[])
 
@@ -57,6 +58,7 @@ const HomeScreen = () => {
         loading?(
             <View className="flex-1 justify-center items-center">
                 <Progress.CircleSnail color="#0bb" size={140} thickness={10}/>
+                <Text className="text-2xl opacity-20 mt-5  text-white font-bold">Ahmet Efe Özer</Text>
             </View>
         ):(
             <SafeAreaView className="flex flex-1">
@@ -100,12 +102,16 @@ const HomeScreen = () => {
                 <Image source={weatherImages[current?.condition?.text]} className="w-52 h-52"/>
              </View>
              <View className="space-y-2">
-                <Text className="text-center font-bold text-white text-6xl ml-5">
+               <View className="flex-row items-center justify-center relative">
+               <Text className="text-center font-bold text-white text-6xl ml-5">
                     {current?.temp_c}°
                 </Text>
+                <TouchableOpacity onPress={()=>navigation.navigate("Plan")} className="absolute right-10"><PencilSquareIcon size="30" color="white"/></TouchableOpacity>
+               </View>
                 <Text className="text-center font-semibold text-white text-xl tracking-widest">
                     {current?.condition?.text}
                 </Text>
+           
              </View>
              <View className="flex-row justify-between mx-4">
                 <View className="flex-row space-x-2 items-center">
@@ -140,7 +146,6 @@ const HomeScreen = () => {
                             return(
                                 <View key={index} className="flex justify-center items-center w-24 rounded-3xl py-3 space-y-1 mr-4" style={{backgroundColor:theme.bgWhite(0.15)}}>
                                     <Image source={weatherImages[item?.day?.condition?.text?.trim()]} className="h-12 w-12"/>
-                                    {console.log(item?.day?.condition?.text)}
                                     <Text className="text-white">{dayName}</Text>
                                     <Text className="text-white text-xl font-semibold">
                                         {item?.day?.avgtemp_c}°
