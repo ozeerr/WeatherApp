@@ -1,0 +1,46 @@
+{
+    "current": {
+        "cloud": 75,
+        "condition": {
+            "code": 1003,
+            "icon": "//cdn.weatherapi.com/weather/64x64/day/116.png",
+            "text": "Partly cloudy"
+        },
+        "feelslike_c": 14.7,
+        "feelslike_f": 58.5,
+        "gust_kph": 10.4,
+        "gust_mph": 6.4,
+        "humidity": 59,
+        "is_day": 1,
+        "last_updated": "2024-04-10 10:45",
+        "last_updated_epoch": 1712735100,
+        "precip_in": 0,
+        "precip_mm": 0,
+        "pressure_in": 29.91,
+        "pressure_mb": 1013,
+        "temp_c": 15,
+        "temp_f": 59,
+        "uv": 4,
+        "vis_km": 10,
+        "vis_miles": 6,
+        "wind_degree": 9,
+        "wind_dir": "N",
+        "wind_kph": 3.6,
+        "wind_mph": 2.2
+    },
+    "forecast": {
+        "forecastday": [
+       
+        ]
+    },
+    "location": {
+        "country": "Turkey",
+        "lat": 40.31,
+        "localtime": "2024-04-10 10:48",
+        "localtime_epoch": 1712735285,
+        "lon": 36.55,
+        "name": "Tokat",
+        "region": "Tokat",
+        "tz_id": "Europe/Istanbul"
+    }
+}
