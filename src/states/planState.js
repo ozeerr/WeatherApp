@@ -3,9 +3,9 @@ import { create } from "zustand";
 export const useTodosStore=create((set)=>({
     todos:[{
         id:"1",
-        day:"Pazartesi",
+        day:"PZT",
         plan:"Spora git",
-        date:null
+        date:new Date().getDate()+"-"+new Date().getMonth()+"-"+new Date().getFullYear()+"-"+new Date().getHours()+":"+new Date().getMinutes()
     }],
     addTodo:item=>set(state=>({
         todos:[...state.todos,item]
@@ -15,5 +15,6 @@ export const useTodosStore=create((set)=>({
         return{
             todos:newTodos
         }
+        
     })
 }))

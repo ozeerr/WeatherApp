@@ -8,10 +8,10 @@ const PlanCard = ({item}) => {
     const removeTodo=useTodosStore(store=>store.removeTodo)
   return (
     <View className="flex-1 p-5 flex-row justify-between  border-b-[0.2px]">
-        <View className="items-center justify-start">
-        <Text className="text-center font-bold">{item?.day}</Text>
-        <Text className="text-center">{item?.plan}</Text>
-        <Text>{item.date}</Text>
+        <View className="items-start justify-center">
+        <Text className="text-center font-bold text-white text-xl">{item?.day}</Text>
+        <Text className="text-center text-white text-lg">{item?.plan}</Text>
+        <Text className="text-sm text-white">{item.date}</Text>
         </View>
         <TouchableOpacity onPress={()=>{removeTodo(item?.id)}}><XCircleIcon size={25} color="red"/></TouchableOpacity>
   </View>
