@@ -36,7 +36,7 @@ This project allows you to check the weather and keep notes based on the weather
 
 ## Screenshots
 
-| Home | Search | NoteList | AddNote |
+| Home | Search | Note List | Add Note |
 | --- | --- | --- | --- |
 | <img src="https://github.com/ozeerr/WeatherApp/assets/137641188/a3e0992e-d1e5-4be3-8d02-6db07b7430d0" alt="OnBoarding" width="100%"/> | <img src="https://github.com/ozeerr/WeatherApp/assets/137641188/759f5a47-1a28-417f-8a82-26585e30ecf1" alt="LoginAndRegister" width="100%" /> | <img src="https://github.com/ozeerr/WeatherApp/assets/137641188/0aeb2aaf-688f-4dda-913e-e2648127f626" alt="LoginAndRegister" width="100%"/> | <img src="https://github.com/ozeerr/WeatherApp/assets/137641188/6bc4c56b-b5fa-4efc-a42c-9b781a0eba78" alt="HomePage" width="100%"/> |
 
